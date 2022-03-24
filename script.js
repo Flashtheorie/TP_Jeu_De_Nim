@@ -5,6 +5,8 @@ let combienDallumettes;
 let nomGagnant;
 let nombreDeTours = 1;
 let error = false;
+let quiJoue;
+
 
 function verification()
 {
@@ -20,16 +22,18 @@ function verification()
 }
 while(nbAllumettes >= 1)
 {
-	combienDallumettes = parseInt(prompt("Il reste " + nbAllumettes + " allumettes, " + PlayerOne + ", voulez vous prendre, 1,2 ou 3 allumettes ?"));
-	verification();
-	if (!error) 
+
+	if (nombreDeTours%2 == 0) 
 	{
-		nbAllumettes = nbAllumettes - combienDallumettes;
-		nombreDeTours = nombreDeTours + 1;
+		quiJoue = PlayerTwo;
 	}
 
+	else if (nombreDeTours%2 == 1)
+	{
+		quiJoue = PlayerOne;
+	}
 
-	combienDallumettes = parseInt(prompt("Il reste " + nbAllumettes + " allumettes, " + PlayerTwo + ", voulez vous prendre, 1,2 ou 3 allumettes ?"));
+	combienDallumettes = parseInt(prompt("Il reste " + nbAllumettes + " allumettes, " + quiJoue + ", voulez vous prendre, 1,2 ou 3 allumettes ?"));
 	verification();
 	if (!error) 
 	{
